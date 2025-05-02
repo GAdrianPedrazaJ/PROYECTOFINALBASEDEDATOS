@@ -176,3 +176,6 @@ function actualizarContadorCarrito() {
 
 // Llamar a la función al cargar la página
 actualizarContadorCarrito();
+
+//const { data: { user } } = await supabase.auth.getUser();
+//const isAdmin = user?.user_metadata?.is_admin || false;
