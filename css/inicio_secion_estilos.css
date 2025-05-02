@@ -1,0 +1,161 @@
+* {
+    font-family: 'Popinns', sans-serif;
+}
+
+body {
+    background-image: url("../imagenes/tiles-shapes-2617112_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.container {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 30px 15px;
+    background: #9806ec; /*Fondo transparente del contenedor*/
+    border-radius: 17px;
+    box-shadow: 0 0 15px rgb(253, 252, 252);
+}
+
+span {
+    color: #fff;
+    font-size: small; /*web*/
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 15px 0;
+}
+
+header {
+    color: #f7f4f4;
+    font-size: 30px; /*Inicio de secion*/
+    display: flex;
+    justify-content: center;
+    padding: 0 0 15px 0;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-field .input { /*Cajas trasparentes de usuario y contraseña*/
+    height: 45px;
+    width: 87%;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    color: #fff;
+    padding: 0 0 0 42px;
+    background: rgba(255, 255, 255, 0.205);
+}
+
+i {
+    position: relative;
+    top: -31px;
+    left: 17px;
+    color: #fff;
+}
+
+::-webkit-input-placeholder { /*Texto de los txt*/
+    color: #fff;
+}
+
+.submit { /*Boton de inicio*/
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    height: 45px;
+    outline: none;
+    width: 100%;
+    background: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit:hover { /*Cursor sombra registrarse*/
+    box-shadow: 1px 5px 7px 1px rgba(255, 254, 254, 0.2);
+}
+
+.bottom { /*Link del boton de texto*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: small;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.bottom-center {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-size: small;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+label a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.social {
+    justify-content: center;
+    margin-top: 40px;
+    display: flex;
+}
+
+.social div {
+    text-decoration: none;
+    width: 150px;
+    border-radius: 3px;
+    padding: 10px 20px;
+    background-color: rgba(255,255,255,0.27);
+    color: #eaf0fb;
+    text-align: center;
+    display: inline-block;
+    align-items: center;
+}
+
+.social div:hover {
+    background-color: rgba(255,255,255,0.47);
+    background: rgb(153, 3, 253);
+}
+
+.social .fb {
+    margin-left: 25px;
+}
+
+.social i {
+    margin-right: 4px;
+}
+
+.social, a:hover {
+    color: rgb(0, 0, 0);
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px 10px 5px;
+}
+
+a:hover {
+    color: rgb(252, 18, 201);
+}

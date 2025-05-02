@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse en la cuenta</title>
+    <link rel="stylesheet" href="css/registro_estilos.css">
+</head>
+<body>
+    
+    <section class="container"><!---->
+        <header>Registrate</header>
+        <form action="guardar_registro.php" class="form">
+            <div class="input-box">
+                <label>Nombre</label>
+                <input type="text" placeholder="Ingresa tu usuario" required>
+            </div>
+
+            <div class="input-box">
+                <label>Gmail</label>
+                <input type="text" placeholder="Ingresa tu correo" required>
+            </div>
+
+            <div class="input-box">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label>Numero telefonico</label>
+                    <input type="number" placeholder="Ingresa tu telefonico" required>
+                </div>
+                <div class="input-box">
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" placeholder="Ingresa tu fecha de nacimiento" required>
+                </div>
+            </div>
+
+            <div class="input-box adress">
+                <label>Dirección</label>
+                <input type="text" placeholder="Ingresa tu dirección" required />
+                <!--<input type="text" placeholder="Ingresa tu dirección 2" required />-->
+                <div class="column">
+                    <div class="select-box">
+                        <select name="departamento" id="departamento">
+                            <option hidden>Departamentos</option>
+                            <option value="Amazonas">Amazonas</option>
+                            <option value="Antioquia">Antioquia</option>
+                            <option value="Arauca">Arauca</option>
+                            <option value="Atlántico">Atlántico</option>
+                            <option value="Bolívar">Bolívar</option>
+                            <option value="Boyacá">Boyacá</option>
+                            <option value="Caldas">Caldas</option>
+                            <option value="Caquetá">Caquetá</option>
+                            <option value="Casanare">Casanare</option>
+                            <option value="Cauca">Cauca</option>
+                            <option value="Cesar">Cesar</option>
+                            <option value="Chocó">Chocó</option>
+                            <option value="Córdoba">Córdoba</option>
+                            <option value="Cundinamarca">Cundinamarca</option>
+                            <option value="Guainía">Guainía</option>
+                            <option value="Guaviare">Guaviare</option>
+                            <option value="Huila">Huila</option>
+                            <option value="La Guajira">La Guajira</option>
+                            <option value="Magdalena">Magdalena</option>
+                            <option value="Meta">Meta</option>
+                            <option value="Nariño">Nariño</option>
+                            <option value="Norte de Santander">Norte de Santander</option>
+                            <option value="Putumayo">Putumayo</option>
+                            <option value="Quindío">Quindío</option>
+                            <option value="Risaralda">Risaralda</option>
+                            <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                            <option value="Santander">Santander</option>
+                            <option value="Sucre">Sucre</option>
+                            <option value="Tolima">Tolima</option>
+                            <option value="Valle del Cauca">Valle del Cauca</option>
+                            <option value="Vaupés">Vaupés</option>
+                            <option value="Vichada">Vichada</option>
+                        </select>                        
+                    </div>
+                    <input type="text" placeholder="Ciudad" required />
+                </div>
+                <div>
+                    <!--<input type="text" placeholder="Región" required />-->
+                    <input type="number" placeholder="Código postal" required />
+                </div>
+            </div>
+            <button type="submit">Registrarse</button>
+
+        </form>
+    </section>
+    
+</body>
+</html>

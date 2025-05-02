@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicia seción en la página</title>
+    <link rel="stylesheet" href="css/inicio_secion_estilos.css">
+</head>
+<body>
+
+    <div class="box">
+        <div class="container">
+            <div class="top-header">
+                <span></span>
+                <header>Iniciar sesión</header>
+            </div>
+            
+            <form action="Registros.php" method="POST">
+                <div class="input-field">
+                    <input type="text" class="input" placeholder="Usuario" required>
+                    <i class="bx bx-lock-alt"></i>  
+                </div>
+                <div class="input-field">
+                    <input type="password" class="input" placeholder="Contraseña" required>
+                    <i class="bx-lock-alt"></i>
+                </div>
+                <div class="input-field">
+                    <input type="submit" class="submit" value="Inicio">
+                </div>
+            </form>
+
+            <div class="bottom">
+                <div class="left">
+                    <section class="coffee" id="inicio">
+                        <a href="#" onclick="confirmarEliminarCuenta()">Eliminar Cuenta</a>
+                    </section>
+                </div>
+                <div class="right">
+                    <label><a href="#">¿Olvidaste la contraseña?</a></label>
+                </div>
+            </div>
+
+            <div class="bottom-center">
+                <label><a href="Registro.html">¿No tienes cuenta? Regístrate aquí</a></label>
+            </div>
+
+            <div class="social">
+                <div class="go"><a href="https://www.google.com" target="_blank"><i class="fab fa-google"></i> Google</a></div>
+                <div class="fb"><a href="https://www.facebook.com/macrenii/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

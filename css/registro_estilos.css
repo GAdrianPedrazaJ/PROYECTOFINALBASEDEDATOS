@@ -1,0 +1,93 @@
+body {
+    background-image: url('../imagenes/tiles-shapes-2617112_1920.jpg');
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 400px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 30px 50px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-box input[type="text"],
+.input-box input[type="password"],
+.input-box input[type="number"],
+.input-box input[type="date"],
+.input-box select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-box {
+    position: relative;
+}
+
+.select-box select {
+    width: 100%;
+}
+
+.select-box::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+button {
+    width: 106%;
+    padding: 10px;
+    background-color: #934caf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2f0c57;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+}

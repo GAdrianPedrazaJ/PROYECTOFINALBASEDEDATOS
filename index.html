@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index_estilos.css">
+    <title>Tienda Online de ManillaNia</title>
+    <style>
+        /* Estilos para la barra de navegación fija */
+        nav {   
+            position: fixed;
+            top: 160px; /* Debajo del header */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 460px;
+            height: 60px;
+            background: rgba(45, 10, 58, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid #ff66b2;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 25px rgba(156, 39, 176, 0.3);
+            z-index: 1000;
+        }
+
+        body {
+            padding-top: 230px; /* Espacio para header + nav */
+        }
+
+        /* Animaciones solo para el header */
+        header {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        header.hide {
+            transform: translateY(-100%);
+        }
+
+        header.show {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="imagenes/logo manillania.png" alt="Logo de ManillaNia">
+            </div>
+            <div class="page-title">
+                <h1>ManillaNia</h1>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+            <a href="#" onclick="mostrarSeccion('tienda')">Tienda</a>
+            <a href="#" onclick="mostrarSeccion('carrito')">Carrito</a>
+            <a href="#" onclick="mostrarSeccion('productos-adquiridos')">Mis Productos</a>
+            <a href="#" onclick="mostrarSeccion('acerca_de')">Acerca de</a>
+            <span></span>
+        </nav>
+
+        <div class="auth-buttons">
+            <a href="registro.html" class="btn">Registrarse</a>
+            <a href="inicio_secion.html" class="btn">Iniciar sesión</a>
+        </div>
+    </header>
+
+    <!-- ==================== SECCIÓN INICIO ==================== -->
+    <section class="coffee" id="inicio">
+        <img class="coffee-img" src="imagenes/fondo.png" width="300px" height="300px" alt="Imagen decorativa">
+    
+        <div class="coffee-content container">
+            <h2>Titulo</h2>
+            <p class="txt-p">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Voluptas doloremque ratione delectus dignissimos minima velit 
+                in ab adipisci et dicta error quis, voluptates neque hic 
+                distinctio fugiat voluptate quam nobis.
+            </p>
+    
+            <div class="coffee-group">
+                <div class="coffee-1">
+                    <img src="imagenes/m1.png" alt="Producto 1">
+                    <h3>subtitulo 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident iusto cupiditate</p>
+                </div>
+                
+                <div class="coffee-1">
+                    <img src="imagenes/m2.png" alt="Producto 2">
+                    <h3>subtitulo 2</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident iusto cupiditate</p>
+                </div>
+
+                <div class="coffee-1">
+                    <img src="imagenes/m3.png" alt="Producto 3">
+                    <h3>subtitulo 3</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident iusto cupiditate</p>
+                </div>
+            </div>
+    
+            <a href="#" class="btn-1informacion">Información</a>
+        </div>
+    
+        <div class="services">
+            <div class="services-content container">
+                <h2>Titulo</h2>
+    
+                <div class="services-group">
+                    <div class="services-1">
+                        <img src="img/i1.svg" alt="Icono servicio 1">
+                        <h3>subtitulo 1</h3>
+                    </div>
+
+                    <div class="services-1">
+                        <img src="img/i2.svg" alt="Icono servicio 2">
+                        <h3>subtitulo 2</h3>
+                    </div>
+
+                    <div class="services-1">
+                        <img src="img/i3.svg" alt="Icono servicio 3">
+                        <h3>subtitulo 3</h3>
+                    </div>
+                </div>
+    
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, blanditiis, at nobis iste sapiente atque magnam eaque quam expedita ipsam sunt! Temporibus autem voluptate aliquam ratione excepturi iste dignissimos deleniti.</p>
+    
+                <a href="#" class="btn-1_1">Información</a>
+            </div>
+        </div>
+    
+        <div class="general">
+            <div class="general-1">
+                <h2>Titulo</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing 
+                    elit. Eius, blanditiis, at nobis iste sapiente 
+                    atque magnam eaque quam expedita ipsam sunt! 
+                    Temporibus autem voluptate aliquam ratione excepturi 
+                    iste dignissimos deleniti.
+                </p>
+                <a href="#" class="btn-1_1">Información</a>
+            </div>
+            <div class="general-2"></div>
+        </div>
+
+        <div class="general">
+            <div class="general-3"></div>
+            <div class="general-1">
+                <h2>Titulo</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing 
+                    elit. Eius, blanditiis, at nobis iste sapiente 
+                    atque magnam eaque quam expedita ipsam sunt! 
+                    Temporibus autem voluptate aliquam ratione excepturi 
+                    iste dignissimos deleniti.
+                </p>
+                <a href="#" class="btn-1_1">Información</a>
+            </div>
+        </div>
+    
+        <div class="blog container">
+            <h2>Titulo</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    
+            <div class="blog-content">
+                <div class="blog-1">
+                    <img src="imagenes/manilla1.jpeg" alt="Manilla 1">
+                    <h3>subtitulo 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, blanditiis, at nobis iste sapiente atque magnam</p>
+                </div>
+
+                <div class="blog-1">
+                    <img src="imagenes/manilla2.jpeg" alt="Manilla 2">
+                    <h3>subtitulo 2</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, blanditiis, at nobis iste sapiente atque magnam</p>
+                </div>
+
+                <div class="blog-1">
+                    <img src="imagenes/manilla3.jpeg" alt="Manilla 3">
+                    <h3>subtitulo 3</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, blanditiis, at nobis iste sapiente atque magnam</p>
+                </div>
+            </div>
+    
+            <a href="#" class="btn-1_1">Información</a>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN TIENDA ==================== -->
+    <section id="tienda" style="display: none;">
+        <div class="container-tienda">
+            <div class="product-list">
+                <div class="product-tienda">
+                    <div class="product-image">
+                        <img src="imagenes/manillaTienda1.png" alt="Manilla tejida">
+                    </div>
+                    <div class="product-details">
+                        <h2 class="product-title">Manilla tejida</h2>
+                        <p class="product-description">
+                            "Como cada hilo en una manilla tejida, 
+                            nuestros lazos se entrelazan con amor y 
+                            amistad, creando una conexión eterna."
+                        </p>
+                        <p class="product-price">$19.99</p>
+                        <button class="btn-add-to-cart" data-product-name="Manilla tejida" data-product-price="$20.99" data-product-image="imagenes/manillaTienda1.png">Agregar al carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-tienda">
+                    <div class="product-image">
+                        <img src="imagenes/manillaTienda2.png" alt="Manilla tejida con dije">
+                    </div>
+                    <div class="product-details">
+                        <h2 class="product-title">Manilla tejida con dije</h2>
+                        <p class="product-description">
+                            "Uniendo hilos con amor, esta manilla tejida 
+                            lleva en su corazón el símbolo de una conexión."
+                        </p>
+                        <p class="product-price">$19.99</p>
+                        <button class="btn-add-to-cart" data-product-name="Manilla tejida con dije" data-product-price="$0.99" data-product-image="imagenes/manillaTienda2.png">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-tienda">
+            <div class="product-list">
+                <div class="product-tienda">
+                    <div class="product-image">
+                        <img src="imagenes/manillaTienda3.png" alt="Manilla 7 nudos">
+                    </div>
+                    <div class="product-details">
+                        <h2 class="product-title">Manilla 7 nudos</h2>
+                        <p class="product-description">
+                            "Que cada nudo de esta pulsera sea un recordatorio 
+                            de la fuerza y la belleza que llevas dentro. 
+                            ¡Haz brillar tu luz única en cada paso del camino!"
+                        </p>
+                        <p class="product-price">$19.99</p>
+                        <button class="btn-add-to-cart">Agregar al carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-tienda">
+                    <div class="product-image">
+                        <img src="imagenes/manillaTienda4.png" alt="Manilla en espiral">
+                    </div>
+                    <div class="product-details">
+                        <h2 class="product-title">Manilla en espiral</h2>
+                        <p class="product-description">
+                            "La vida es un viaje en espiral, llena de vueltas y giros. 
+                            Que esta manilla te recuerde que cada paso te lleva más cerca de tus sueños."
+                        </p>
+                        <p class="product-price">$19.99</p>
+                        <button class="btn-add-to-cart">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN CARRITO ==================== -->
+    <section id="carrito" style="display: none;">
+        <div class="contenedor">
+            <div class="lista-productos">
+                <h2 class="titulo-carrito">Tu Carrito de Compras</h2>
+                <div id="lista-carrito" class="lista-carrito">
+                    <!-- Los productos se agregarán dinámicamente aquí -->
+                </div>
+                <div class="total-carrito">
+                    <h3>Total: <span id="total-carrito">$0</span></h3>
+                    <button id="proceder-pago" class="btn-pago">Proceder al Pago</button>
+                </div>
+            </div>
+            
+            <div id="formulario-pedido" style="display: none;">
+                <div class="formulario-pedido">
+                    <h4 class="titulo">Información del Pedido</h4>
+                    <form action="procesar_pedido.php" method="post" id="form-pedido">
+                        <div class="campo">
+                            <label for="nombre">Nombre de quien realiza el pedido:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                            <span id="nombre_error" class="error-message"></span>
+                        </div>    
+                        
+                        <div class="campo">
+                            <label for="tipo_id">Seleccione tipo y agregue el número de Cédula:</label>
+                            <select id="tipo_id" name="tipo_id">
+                                <option value="nacional">Cédula Nacional</option>
+                                <option value="extranjera">Cédula Extranjera</option>
+                            </select>
+                            <input type="text" id="numero_id" name="numero_id" required>
+                            <span id="cedula_error" class="error-message"></span>
+                        </div>
+                        
+                        <div class="campo">
+                            <label for="direccion">Dirección de Entrega:</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label for="departamento">Departamento:</label>
+                            <input type="text" id="departamento" name="departamento" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label for="ciudad">Ciudad:</label>
+                            <input type="text" id="ciudad" name="ciudad" required>
+                        </div>    
+                        
+                        <div class="campo">
+                            <label for="celular">Número de Celular:</label>
+                            <input type="text" id="celular" name="celular" required>
+                            <span id="celular_error" class="error-message"></span>
+                        </div>
+                        
+                        <div class="campo">
+                            <label for="cantidad">Cantidad de Manillas:</label>
+                            <input type="number" id="cantidad" name="cantidad" readonly required>
+                            <span id="cantidad_error" class="error-message"></span>
+                        </div>
+                        
+                        <div class="campo">
+                            <label for="medidas">Ingrese la(s) medida(s) de la muñeca de la mano (cm). De ser varias medidas sepárelas con comas:</label>
+                            <input type="text" id="medidas" name="medidas" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label for="metodo_pago">Método de pago:</label>
+                            <select id="metodo_pago" name="metodo_pago">
+                                <option value="nequi">Nequi</option>
+                                <option value="daviplata">DaviPlata</option>
+                            </select>
+                        </div>
+                        
+                        <div class="botones-formulario">
+                            <button type="button" id="volver-carrito" class="btn-volver">Volver al Carrito</button>
+                            <button type="submit" name="realizar_pedido" class="btn-enviar">Realizar pedido</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN PRODUCTOS ADQUIRIDOS ==================== -->
+    <section id="productos-adquiridos" style="display: none;">
+        <div class="contenedor">
+            <h2 class="titulo-carrito">Tus Productos Adquiridos</h2>
+            <div id="lista-productos-adquiridos" class="lista-carrito">
+                <!-- Los productos adquiridos aparecerán aquí -->
+            </div>
+            <div class="total-carrito">
+                <button onclick="mostrarSeccion('tienda')" class="btn-pago">Volver a la Tienda</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN ACERCA DE ==================== -->
+    <section class="contenido" id="acerca_de" style="display: none;">
+        <div class="contenido">
+            <div class="columns">
+                <div class="column">
+                    <h3>¿Qué es Manillania?</h3>
+                    <p>Manillania es una tienda virtual que ofrece productos relacionados con manualidades (manillas).</p>
+                    <h3>¿Qué busca Manillania?</h3>
+                    <p>Busca que las personas puedan comprar su manilla sin problema alguno y tengan la libertad de personalizar su producto, sin importar edad ni género.</p>
+                    <h3>¿Por qué iniciar sesión?</h3>
+                    <p>Para nosotros es importante reconocer a nuestros clientes, permitiendo agilizar ciertos procesos a la hora de comprar. Además, nosotros ofrecemos puntos atribuidos por compras dentro de la tienda virtual, los cuales pueden ser canjeados por porcentajes de descuentos en próximas compras. Debemos identificar al usuario que realiza la(s) compra(s) y otorgarle los puntos correspondientes.</p>
+                    <h3>Servicios de ayuda y atención al cliente</h3>
+                    <h4><strong>Sitios de ayuda:</strong>
+                    <span>Puedes visitar nuestra página de Facebook o escribirnos al WhatsApp donde podrás resolver tus inquietudes.</span></h4>
+                    <h4><strong>Comunícate con nosotros:</strong>
+                    <span>Comunícate por el correo manillania.aem@gmail.com y daremos atención a tu solicitud lo más pronto posible.</span></h4>
+                    
+                    <h3>Productos ofrecidos</h3>
+                    <p>Pensando en las personas que gustan de las manillas con variedad, nuestra tienda virtual ofrece manillas ya fabricadas. Si eres de gustos aleatorios, nuestra sección de personalización te brindará los campos para personalizar la manilla a tu gusto y creatividad.</p>
+                </div>
+                
+                <div class="column">
+                    <h3>Personalización de productos</h3>
+                    <p>En Manillania pensamos en aquellas personas que gozan de una variedad de ideas y gustos; es por esto que nuestra tienda virtual cuenta con la sección "personalización" donde podrás personalizar tu manilla teniendo en cuenta varias zonas. Dentro de la sección encontrarás indicaciones para personalizar, además de encontrar imágenes de los diferentes modelos. Si quieres conocer las zonas de personalización que como empresa tenemos en cuenta al momento de fabricar una manilla da clic aquí:</p>
+        
+                    <p><strong>Si quieres conocer nuestras políticas, términos y condiciones, puedes darle clic al siguiente texto:</strong></p>
+                    <h3><a href="imagenes/políticas términos y Condiciones - ManillaNia.pdf" target="_blank">Políticas, términos y Condiciones</a></h3>
+                    <h3>Derechos de propiedad intelectual</h3>
+                    <p>Todo el contenido de este sitio web, incluyendo (pero no limitado a) texto, gráficos, logotipos, imágenes y código, es propiedad de ManillaNia y está protegido por las leyes de derechos de autor. Se prohíbe estrictamente el uso no autorizado de cualquier contenido sin el permiso explícito de ManillaNia.</p>
+                </div>
+            </div>
+        
+            <div class="line-with-text">
+                <span>Zona de elementos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN CONTACTO ==================== -->
+    <div id="contacto">
+        <div class="header-contacto">
+            <div class="contacto-titulo-texto">
+                <h2>Contáctenos</h2>
+                <p>¡Contáctanos para obtener más información!</p>
+            </div>
+            <div class="contacto-texto">
+                <div class="contacto-texto-p">
+                    <p>
+                        Lorem ipsum dolor sit amet, 
+                        consectetur adipisicing elit. 
+                        Minus archite 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-contacto">
+            <form action="#">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button class="btnMensaje" type="submit">Enviar mensaje</button>
+            </form>
+            <div class="info-contacto">
+                <div class="content-contacto">
+                    <h2>informacion</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur 
+                        adipisicing elit. Est modi non esse, 
+                        temporibus deleniti nemo, placeat 
+                        reprehenderit quod blanditiis pariatur 
+                        nostrum, recusandae ad fugiat aut autem 
+                        qui molestiae adipisci consequatur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="linea">
+            <div class="texto-linea">
+                <span class="texto">ManillaNia</span>
+                <hr class="largo">
+            </div>
+            <hr class="corto">
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>¿Qué hacemos?</h3>
+                <p class="parrafor-footer">Fabricamos distintos tipos de manillas basándonos en su gusto y personalidad</p>
+            </div>
+            <div class="footer-section">
+                <h3>Políticas de la tienda</h3>
+                <p class="parrafor-footer">para mayor informacion dirigete a la pestaña "acerca_de"</p>
+                <h3>Métodos de pago</h3>
+                <div class="div-contenedor">
+                <img class="icono" src="imagenes/daviplata.png" alt="DaviPlata">
+                <img class="icono" src="imagenes/nequi.png" alt="Nequi">
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 class="parrafor-footer">¿Porque iniciar sesión?</h3>
+                <p class="parrafor-footer">Nos permite agilizar las compras; además, podrás recibir ofertas o descuentos atribuidos al cliente</p>
+                <img src="imagenes/pie_simbolo.png" alt="manualidad" width="80px" height="80px">
+            </div>
+            
+            <div class="footer-section">
+                <h3>Encuéntranos en:</h3>
+                <div class="div-contenedor">
+                <a href="https://Wa.me/573138838287" target="_blank">
+                    <img class="logo-footer" src="imagenes/whatsapp.png" alt="Icono WhatsApp">
+                </a>
+                <a href="https://www.facebook.com/macrenii/" target="_blank">
+                    <img class="logo-footer" src="imagenes/facebook.png" alt="Icono Facebook">
+                </a>
+                </div>
+                <p class="parrafor-footer">para sugerencias, reclamos, comentarios puedes escribirmos la siguiente Correo</p>
+                <p class="parrafor-footer">Correo: manillania.aem@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        /**
+         * Función para mostrar secciones específicas y ocultar las demás
+         * @param {string} id - ID de la sección a mostrar
+         */
+        function mostrarSeccion(id) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('section').forEach(function(seccion) {
+                seccion.style.display = 'none';
+            });
+            // Mostrar la sección deseada
+            document.getElementById(id).style.display = 'block';
+        }
+        
+        // Scroll al inicio al cargar la página
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        const headerHeight = document.querySelector('header').offsetHeight;
+    
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            // Comprueba si el scroll es suficiente para considerar
+            if (Math.abs(currentScroll - lastScroll) < 50) return;
+            
+            // Oculta el header al hacer scroll hacia abajo
+            if (currentScroll > lastScroll && currentScroll > headerHeight) {
+                header.classList.remove('show');
+                header.classList.add('hide');
+            } 
+            // Muestra el header al hacer scroll hacia arriba
+            else if (currentScroll < lastScroll) {
+                header.classList.remove('hide');
+                header.classList.add('show');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="carrito.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
