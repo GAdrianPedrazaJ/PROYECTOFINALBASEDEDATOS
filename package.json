@@ -1,0 +1,30 @@
+{
+  "name": "proyecto-base-datos",
+  "version": "1.0.0",
+  "description": "API para manejar usuarios, productos y pedidos",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "pg": "^8.15.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GAdrianPedrazaJ/PROYECTOFINALBASEDEDATOS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GAdrianPedrazaJ/PROYECTOFINALBASEDEDATOS/issues"
+  },
+  "homepage": "https://github.com/GAdrianPedrazaJ/PROYECTOFINALBASEDEDATOS#readme"
+}
