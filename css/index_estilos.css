@@ -1,5 +1,4 @@
 /* ========== IMPORTACIÓN DE FUENTES ========== */
-/* Importa diversas fuentes de Google Fonts para usar en el sitio */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
@@ -9,45 +8,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 /* ========== ESTILOS GENERALES ========== */
-/* Reset básico para todos los elementos */
 * {
-    margin: 0; /* Elimina márgenes por defecto */
-    padding: 0; /* Elimina padding por defecto */
-    box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
-    text-decoration: none; /* Elimina subrayado de enlaces */
-    list-style: none; /* Elimina viñetas de listas */
-    color: #e0e0e0; /* Color de texto general */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: #e0e0e0;
 }
 
-/* Estilos del cuerpo principal */
 body {
-    font-family: 'Poppins', sans-serif; /* Fuente principal */
-    background-color: #1a1a1a; /* Color de fondo oscuro */
-    line-height: 1.6; /* Espaciado entre líneas */
-    padding-top: 230px; /* Espacio para el header fijo */
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    line-height: 1.6;
+    padding-top: 230px;
 }
 
 /* ========== HEADER FIJO ========== */
 header {
-    position: fixed; /* Fija el header en la parte superior */
+    position: fixed;
     top: 0;
-    width: 100%; /* Ocupa todo el ancho */
-    background-color: #2d0a3a; /* Color morado oscuro */
+    width: 100%;
+    background-color: #2d0a3a;
     color: #ffffff;
     padding: 20px;
     text-align: center;
-    border: 2px solid #ff66b2; /* Borde rosado */
-    box-shadow: 0 0 10px 5px rgba(255, 102, 178, 0.3); /* Sombra rosada */
-    z-index: 1001; /* Asegura que esté por encima de otros elementos */
+    border: 2px solid #ff66b2;
+    box-shadow: 0 0 10px 5px rgba(255, 102, 178, 0.3);
+    z-index: 1001;
 }
 
-/* Contenedor del logo */
 .logo-container {
     display: block;
     align-items: center;
 }
 
-/* Estilos del logo */
 .logo {
     margin-right: auto;
 }
@@ -57,13 +52,12 @@ header {
     width: 120px;
     height: 120px;
     margin-right: 0;
-    border-radius: 50%; /* Forma circular */
-    object-fit: cover; /* Ajuste de imagen */
+    border-radius: 50%;
+    object-fit: cover;
     border: 1px solid #ff66b2;
-    box-shadow: 0 0 10px rgba(156, 39, 176, 0.5); /* Sombra morada */
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
 }
 
-/* Botones de autenticación */
 .auth-buttons {
     display: flex;
     gap: 10px;
@@ -86,10 +80,9 @@ header {
 .auth-buttons .btn:hover {
     background: none;
     color: #ff66b2;
-    transform: translateY(-2px); /* Efecto de levitación */
+    transform: translateY(-2px);
 }
 
-/* Título de la página */
 .page-title {
     flex-grow: 1;
     text-align: center;
@@ -106,14 +99,14 @@ h1 {
 /* ========== BARRA DE NAVEGACIÓN MEJORADA ========== */
 nav {   
     position: fixed;
-    top: 160px; /* Posición debajo del header */
+    top: 160px;
     left: 50%;
-    transform: translateX(-50%); /* Centrado horizontal */
+    transform: translateX(-50%);
     width: 80%;
     max-width: 460px;
     height: 60px;
-    background: rgba(45, 10, 58, 0.95); /* Fondo semitransparente */
-    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+    background: rgba(45, 10, 58, 0.95);
+    backdrop-filter: blur(8px);
     border: 1px solid #ff66b2;
     border-radius: 15px;
     display: flex;
@@ -138,35 +131,19 @@ nav a {
     transition: all 0.3s ease;
 }
 
-/* MODIFICACIÓN SOLICITADA: Se eliminaron los pseudo-elementos ::before y ::after del menú */
-/* Esto simplifica la navegación y elimina elementos decorativos complejos */
-
-/* MODIFICACIÓN SOLICITADA: Resaltador de navegación - ahora oculto */
 nav span {
-    display: none; /* Oculta completamente el cuadrito de resaltado animado */
+    display: none;
 }
 
-/* Estilo para el enlace activo simplificado */
 nav a.active {
     font-weight: bold;
     color: #ff66b2;
-    /* Se eliminó cualquier borde o pseudo-elemento superior */
     border-top: none;
 }
 
-/* Efecto hover para los enlaces */
 nav a:hover:not(.active) {
     color: #ff66b2;
     transform: translateY(-2px);
-}
-
-/* Control de visibilidad para el enlace de Admin */
-#admin-link {
-    display: none !important;
-}
-
-body.admin #admin-link {
-    display: inline-block !important;
 }
 
 /* ========== CONTENIDO PRINCIPAL ========== */
@@ -176,18 +153,15 @@ main {
     padding-top: 20px;
 }
 
-/* Mejoras de legibilidad para títulos */
 h1, h2, h3, h4, h5, h6 {
     color: #ff66b2;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Estilos para texto general */
 p, span, li, label {
     color: #d0d0d0;
 }
 
-/* Estilos para el formulario de carrito */
 #formulario-pedido .campo label {
     color: #ff66b2;
     font-weight: 500;
@@ -216,20 +190,17 @@ p, span, li, label {
     box-shadow: 0 0 10px rgba(255, 102, 178, 0.5);
 }
 
-/* Estilos para los placeholders */
 ::placeholder {
     color: #a0a0a0 !important;
     opacity: 1 !important;
 }
 
-/* Contenedor principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
 }
 
-/* Secciones */
 section {
     padding: 0;
 }
@@ -1382,7 +1353,6 @@ p {
 
 /* ========== MEDIA QUERIES PARA RESPONSIVIDAD ========== */
 @media (max-width: 992px) {
-    /* Estilos para pantallas medianas */
     .lista-carrito {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1414,7 +1384,6 @@ p {
 }
 
 @media (max-width: 768px) {
-    /* Estilos para tablets */
     body {
         padding-top: 180px;
     }
@@ -1478,7 +1447,6 @@ p {
         width: auto;
     }
     
-    /* MODIFICACIÓN SOLICITADA: Se mantiene oculto el resaltador en móviles */
     nav span {
         display: none;
     }
@@ -1496,7 +1464,6 @@ p {
 }
 
 @media (max-width: 480px) {
-    /* Estilos para móviles */
     body {
         padding-top: 170px;
     }
@@ -1587,7 +1554,6 @@ p {
         margin: 10% auto;
     }
     
-    /* Estilo alternativo para móviles */
     nav a.active::after {
         content: "";
         position: absolute;

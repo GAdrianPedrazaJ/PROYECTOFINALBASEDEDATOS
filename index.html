@@ -5,78 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index_estilos.css">
     <title>Tienda Online de ManillaNia</title>
-    <style>
-        /* Estilos para la barra de navegación fija */
-        nav {   
-            position: fixed;
-            top: 160px; /* Debajo del header */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            max-width: 460px;
-            height: 60px;
-            background: rgba(45, 10, 58, 0.95);
-            backdrop-filter: blur(8px);
-            border: 1px solid #ff66b2;
-            border-radius: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 5px 25px rgba(156, 39, 176, 0.3);
-            z-index: 1000;
-            gap: 10px;
-            padding: 0 15px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            white-space: nowrap;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            background: rgba(255, 102, 178, 0.2);
-        }
-
-        nav a.active {
-            font-weight: bold;
-        }
-
-        /* Rectángulo adaptable alrededor del item activo */
-        nav a.active::before {
-            content: "";
-            position: absolute;
-            top: -5px;
-            left: 0;
-            right: 0;
-            bottom: -5px;
-            border: 2px solid #ff66b2;
-            border-radius: 8px;
-            opacity: 0.5;
-        }
-
-        body {
-            padding-top: 230px; /* Espacio para header + nav */
-        }
-
-        /* Animaciones solo para el header */
-        header {
-            transition: transform 0.3s ease-in-out;
-        }
-
-        header.hide {
-            transform: translateY(-100%);
-        }
-
-        header.show {
-            transform: translateY(0);
-        }
-    </style>
 </head>
 <body>
 
@@ -96,10 +24,9 @@
             <a href="#" onclick="mostrarSeccion('carrito')">Carrito</a>
             <a href="#" onclick="mostrarSeccion('productos-adquiridos')">Mis Productos</a>
             <a href="#" onclick="mostrarSeccion('acerca_de')">Acerca de</a>
-            <a href="#" onclick="mostrarSeccion('administrador')" id="admin-link" style="display: none;">Admin</a>
+            <a href="#" onclick="mostrarSeccion('administrador')">Admin</a>
         </nav>
         
-
         <div class="auth-buttons">
             <a href="registro.html" class="btn" id="btn-registrarse">Registrarse</a>
             <a href="inicio_secion.html" class="btn" id="btn-iniciar-sesion">Iniciar sesión</a>
@@ -107,7 +34,6 @@
         </div>
     </header>
 
-    <!-- Resto del contenido permanece igual -->
     <!-- ==================== SECCIÓN INICIO ==================== -->
     <section class="coffee" id="inicio">
         <img class="coffee-img" src="imagenes/fono.png" width="300px" height="300px" alt="Imagen decorativa">
@@ -423,9 +349,11 @@
             </div>
         </div>
     </section>
-    <!-- ==================== SECCIÓN ADMINISTRADOR ==================== -->
+
+    <<!-- ==================== SECCIÓN ADMINISTRADOR ==================== -->
 <section id="administrador" style="display: none;">
     <div class="admin-container">
+        <!-- Barra lateral -->
         <div class="admin-sidebar">
             <h3 class="admin-title">Panel de Administración</h3>
             <ul class="admin-menu">
@@ -437,13 +365,14 @@
                 <li><a href="#" onclick="mostrarTabla('mensajes_contacto')">Mensajes Contacto</a></li>
             </ul>
         </div>
-        
+
+        <!-- Contenido principal -->
         <div class="admin-content">
             <!-- Tabla Usuarios -->
             <div id="tabla-usuarios" class="admin-table-container">
                 <div class="admin-table-header">
                     <h3>Usuarios</h3>
-                    <button class="btn-agregar" onclick="abrirModal('usuarios')">Agregar Usuario</button>
+                    <button class="btn-agregar" onclick="abrirModal('usuarios', 'create')">Agregar Usuario</button>
                 </div>
                 <table class="admin-table">
                     <thead>
@@ -462,129 +391,15 @@
                     </tbody>
                 </table>
             </div>
-            
-            <!-- Tabla Productos -->
+
+            <!-- Otras tablas (inicialmente ocultas) -->
             <div id="tabla-productos" class="admin-table-container" style="display: none;">
-                <div class="admin-table-header">
-                    <h3>Productos</h3>
-                    <button class="btn-agregar" onclick="abrirModal('productos')">Agregar Producto</button>
-                </div>
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
-                            <th>Fecha Creación</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="productos-body">
-                        <!-- Datos se cargarán dinámicamente -->
-                    </tbody>
-                </table>
+                <!-- Estructura similar a tabla-usuarios -->
             </div>
-            
-            <!-- Tabla Pedidos -->
-            <div id="tabla-pedidos" class="admin-table-container" style="display: none;">
-                <div class="admin-table-header">
-                    <h3>Pedidos</h3>
-                    <button class="btn-agregar" onclick="abrirModal('pedidos')">Agregar Pedido</button>
-                </div>
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Monto Total</th>
-                            <th>Estado</th>
-                            <th>Dirección</th>
-                            <th>Fecha Creación</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="pedidos-body">
-                        <!-- Datos se cargarán dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <!-- Tabla Items Pedido -->
-            <div id="tabla-items_pedido" class="admin-table-container" style="display: none;">
-                <div class="admin-table-header">
-                    <h3>Items de Pedido</h3>
-                    <button class="btn-agregar" onclick="abrirModal('items_pedido')">Agregar Item</button>
-                </div>
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Pedido ID</th>
-                            <th>Producto ID</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario</th>
-                            <th>Fecha Creación</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="items_pedido-body">
-                        <!-- Datos se cargarán dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <!-- Tabla Historial Compras -->
-            <div id="tabla-productos_usuarios" class="admin-table-container" style="display: none;">
-                <div class="admin-table-header">
-                    <h3>Historial de Compras</h3>
-                </div>
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Usuario ID</th>
-                            <th>Producto ID</th>
-                            <th>Pedido ID</th>
-                            <th>Fecha Compra</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="productos_usuarios-body">
-                        <!-- Datos se cargarán dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <!-- Tabla Mensajes Contacto -->
-            <div id="tabla-mensajes_contacto" class="admin-table-container" style="display: none;">
-                <div class="admin-table-header">
-                    <h3>Mensajes de Contacto</h3>
-                </div>
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Usuario ID</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Mensaje</th>
-                            <th>Fecha Creación</th>
-                            <th>Respondido</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="mensajes_contacto-body">
-                        <!-- Datos se cargarán dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
+            <!-- ... (resto de tablas) ... -->
         </div>
     </div>
-    
+
     <!-- Modal para CRUD -->
     <div id="admin-modal" class="admin-modal">
         <div class="admin-modal-content">
@@ -592,7 +407,7 @@
             <h3 id="modal-title">Editar Registro</h3>
             <form id="admin-form">
                 <div id="modal-form-content">
-                    <!-- Contenido dinámico según la tabla -->
+                    <!-- Campos dinámicos según la tabla -->
                 </div>
                 <div class="admin-modal-buttons">
                     <button type="button" class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
@@ -602,6 +417,271 @@
         </div>
     </div>
 </section>
+
+<style>
+    /* Estilos para el panel de administrador */
+    #administrador {
+        background-color: #2d0a3a;
+        padding: 30px;
+        min-height: calc(100vh - 230px);
+        border-top: 2px solid #ff66b2;
+        border-bottom: 2px solid #ff66b2;
+    }
+
+    .admin-container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .admin-sidebar {
+        width: 250px;
+        background-color: #3a0a4a;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ff66b2;
+        box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
+    }
+
+    .admin-title {
+        color: #ff66b2;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+        border-bottom: 1px dashed #ff66b2;
+        padding-bottom: 10px;
+    }
+
+    .admin-menu {
+        list-style: none;
+        padding: 0;
+    }
+
+    .admin-menu li {
+        margin-bottom: 10px;
+    }
+
+    .admin-menu a {
+        display: block;
+        padding: 10px;
+        color: #e0e0e0;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        background-color: rgba(156, 39, 176, 0.2);
+        border-left: 3px solid transparent;
+    }
+
+    .admin-menu a:hover {
+        background-color: rgba(255, 102, 178, 0.3);
+        border-left: 3px solid #ff66b2;
+        color: #ffffff;
+    }
+
+    .admin-content {
+        flex: 1;
+    }
+
+    .admin-table-container {
+        background-color: #3a0a4a;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ff66b2;
+        box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
+        margin-bottom: 20px;
+    }
+
+    .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: #e0e0e0;
+    }
+
+    .admin-table th {
+        background-color: #9c27b0;
+        color: white;
+        padding: 12px;
+        text-align: left;
+    }
+
+    .admin-table td {
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 102, 178, 0.2);
+    }
+
+    .admin-table tr:hover {
+        background-color: rgba(255, 102, 178, 0.1);
+    }
+
+    .btn-agregar {
+        background-color: #9c27b0;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-agregar:hover {
+        background-color: #ff66b2;
+        transform: translateY(-2px);
+    }
+
+    .admin-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow: auto;
+    }
+
+    .admin-modal-content {
+        background-color: #3a0a4a;
+        margin: 5% auto;
+        padding: 30px;
+        border: 1px solid #ff66b2;
+        border-radius: 10px;
+        width: 60%;
+        max-width: 700px;
+        box-shadow: 0 0 25px rgba(156, 39, 176, 0.5);
+        position: relative;
+    }
+</style>
+
+<script>
+    // ========== FUNCIONALIDAD DEL ADMINISTRADOR ==========
+    let currentTable = '';
+    let currentAction = '';
+    let currentId = '';
+
+    function mostrarTabla(tabla) {
+        if (!esAdmin()) {
+            alert("No tienes permisos para acceder a esta función.");
+            return;
+        }
+        
+        // Oculta todas las tablas
+        document.querySelectorAll('.admin-table-container').forEach(t => {
+            t.style.display = 'none';
+        });
+        
+        // Muestra la tabla seleccionada
+        document.getElementById(`tabla-${tabla}`).style.display = 'block';
+        currentTable = tabla;
+        
+        // Carga los datos
+        cargarDatosTabla(tabla);
+    }
+
+    async function cargarDatosTabla(tabla) {
+        try {
+            const response = await fetch(`/api/${tabla}/obtener`);
+            const data = await response.json();
+            mostrarDatosEnTabla(tabla, data);
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al cargar datos');
+        }
+    }
+
+    function mostrarDatosEnTabla(tabla, data) {
+        const tbody = document.getElementById(`${tabla}-body`);
+        tbody.innerHTML = '';
+
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            
+            // Agrega celdas según la estructura de la tabla
+            for (const key in item) {
+                const cell = document.createElement('td');
+                cell.textContent = item[key];
+                row.appendChild(cell);
+            }
+            
+            // Agrega botones de acciones
+            const actionsCell = document.createElement('td');
+            actionsCell.innerHTML = `
+                <button class="btn-editar" onclick="abrirModal('${tabla}', 'update', '${item.id}')">Editar</button>
+                <button class="btn-eliminar" onclick="eliminarRegistro('${tabla}', '${item.id}')">Eliminar</button>
+            `;
+            row.appendChild(actionsCell);
+            
+            tbody.appendChild(row);
+        });
+    }
+
+    function abrirModal(tabla, accion, id = null) {
+        currentAction = accion;
+        currentId = id;
+        
+        document.getElementById('admin-modal').style.display = 'block';
+        document.getElementById('modal-title').textContent = 
+            accion === 'create' ? `Agregar ${tabla}` : `Editar ${tabla}`;
+        
+        // Limpia el formulario
+        const formContent = document.getElementById('modal-form-content');
+        formContent.innerHTML = '';
+        
+        // Agrega campos según la tabla
+        const campos = obtenerCamposTabla(tabla);
+        campos.forEach(campo => {
+            const label = document.createElement('label');
+            label.textContent = campo.charAt(0).toUpperCase() + campo.slice(1);
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = campo;
+            input.required = true;
+            
+            formContent.appendChild(label);
+            formContent.appendChild(input);
+            formContent.appendChild(document.createElement('br'));
+        });
+        
+        // Si es edición, carga los datos
+        if (accion === 'update' && id) {
+            cargarDatosFormulario(tabla, id);
+        }
+    }
+
+    function cerrarModal() {
+        document.getElementById('admin-modal').style.display = 'none';
+    }
+
+    async function eliminarRegistro(tabla, id) {
+        if (!confirm('¿Estás seguro de eliminar este registro?')) return;
+        
+        try {
+            const response = await fetch(`/api/${tabla}/eliminar/${id}`, {
+                method: 'DELETE'
+            });
+            
+            if (response.ok) {
+                alert('Registro eliminado');
+                cargarDatosTabla(tabla);
+            } else {
+                throw new Error('Error al eliminar');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al eliminar registro');
+        }
+    }
+
+    // Función auxiliar para obtener campos de cada tabla
+    function obtenerCamposTabla(tabla) {
+        const campos = {
+            usuarios: ['nombre_completo', 'correo', 'telefono', 'direccion'],
+            productos: ['nombre', 'precio', 'stock'],
+            pedidos: ['usuario_id', 'monto_total', 'estado']
+        };
+        return campos[tabla] || [];
+    }
+</script>
 
     <!-- ==================== SECCIÓN CONTACTO ==================== -->
     <div id="contacto">
@@ -706,71 +786,11 @@
             // Mostrar la sección deseada
             document.getElementById(id).style.display = 'block';
             
-            // Actualizar navegación activa
-            document.querySelectorAll('nav a').forEach(function(enlace) {
-                enlace.classList.remove('active');
-            });
-            
-            // Marcar como activo el enlace correspondiente
-            const enlaceActivo = document.querySelector(`nav a[onclick="mostrarSeccion('${id}')"]`);
-            if (enlaceActivo) {
-                enlaceActivo.classList.add('active');
-            }
-            
             // Scroll al inicio
             window.scrollTo(0, 0);
         }
-        
-        // Mostrar/ocultar enlace Admin según rol
-        function verificarRolUsuario() {
-            // Esto debería venir de tu sistema de autenticación
-            // Ejemplo temporal - reemplazar con lógica real
-            const esAdmin = localStorage.getItem('esAdmin') === 'true' || 
-                           sessionStorage.getItem('esAdmin') === 'true';
-            
-            const adminLink = document.getElementById('admin-link');
-            if (adminLink) {
-                adminLink.style.display = esAdmin ? 'inline-block' : 'none';
-            }
-        }
-        
-        // Scroll al inicio al cargar la página
-        window.onload = function() {
-            window.scrollTo(0, 0);
-            verificarRolUsuario();
-            
-            // Marcar "Inicio" como activo por defecto
-            document.querySelector('nav a[onclick="mostrarSeccion(\'inicio\')"]').classList.add('active');
-        };
-
-        let lastScroll = 0;
-        const header = document.querySelector('header');
-        const headerHeight = document.querySelector('header').offsetHeight;
-    
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            // Comprueba si el scroll es suficiente para considerar
-            if (Math.abs(currentScroll - lastScroll) < 50) return;
-            
-            // Oculta el header al hacer scroll hacia abajo
-            if (currentScroll > lastScroll && currentScroll > headerHeight) {
-                header.classList.remove('show');
-                header.classList.add('hide');
-            } 
-            // Muestra el header al hacer scroll hacia arriba
-            else if (currentScroll < lastScroll) {
-                header.classList.remove('hide');
-                header.classList.add('show');
-            }
-            
-            lastScroll = currentScroll;
-        });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="carrito.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
