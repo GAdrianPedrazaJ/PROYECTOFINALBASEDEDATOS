@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const client = require('./db'); // Ajusta la ruta si es necesario
+// const bcrypt = require('bcrypt'); // Comentado porque no se usará
+// const saltRounds = 10; // No se necesita
 
 const app = express();
 const PORT = 3000;
@@ -31,38 +33,49 @@ const validarTabla = (req, res, next) => {
 };
 
 // ------------------ RUTAS PARA USUARIOS ------------------
-app.post('/api/usuarios/insertar', (req, res) => {
-  const { nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, tipo_documento_id, numero_documento, is_admin } = req.body;
-  const query = `
-    INSERT INTO usuarios (nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, tipo_documento_id, numero_documento, is_admin)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
-  `;
-  client.query(query, [nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, tipo_documento_id, numero_documento, is_admin])
-    .then(() => res.status(201).json({ mensaje: 'Usuario creado' }))
-    .catch(err => res.status(500).json({ error: err.message }));
+app.post('/api/usuarios/insertar', async (req, res) => {
+  const { nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, is_admin } = req.body;
+
+  try {
+      // Inserta la contraseña directamente sin hashear
+      const query = `
+          INSERT INTO usuarios (nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, is_admin)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+      `;
+      await client.query(query, [nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, is_admin]);
+
+      res.status(201).json({ mensaje: 'Usuario creado con éxito' });
+
+  } catch (error) {
+      console.error('Error al registrar usuario:', error);
+      res.status(500).json({ error: 'Error al registrar usuario' });
+  }
 });
 
+
 app.get('/api/usuarios/obtener', (req, res) => {
-  client.query('SELECT * FROM usuarios')
-    .then(result => res.status(200).json(result.rows))
-    .catch(err => res.status(500).json({ error: err.message }));
+  client.query('SELECT id, nombre_completo, correo, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, is_admin FROM usuarios')
+      .then(result => res.status(200).json(result.rows))
+      .catch(err => res.status(500).json({ error: err.message }));
 });
+
 
 app.put('/api/usuarios/actualizar/:id', (req, res) => {
   const { id } = req.params;
   const { nombre_completo, correo, telefono, direccion } = req.body;
   const query = `
-    UPDATE usuarios
-    SET nombre_completo=$1, correo=$2, telefono=$3, direccion=$4
-    WHERE id=$5
+      UPDATE usuarios
+      SET nombre_completo=$1, correo=$2, telefono=$3, direccion=$4
+      WHERE id=$5
   `;
   client.query(query, [nombre_completo, correo, telefono, direccion, id])
-    .then(result => {
-      if (result.rowCount === 0) return res.status(404).json({ mensaje: 'Usuario no encontrado' });
-      res.status(200).json({ mensaje: 'Usuario actualizado' });
-    })
-    .catch(err => res.status(500).json({ error: err.message }));
+      .then(result => {
+          if (result.rowCount === 0) return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+          res.status(200).json({ mensaje: 'Usuario actualizado' });
+      })
+      .catch(err => res.status(500).json({ error: err.message }));
 });
+
 
 app.delete('/api/usuarios/eliminar/:id', (req, res) => {
   client.query('DELETE FROM usuarios WHERE id=$1', [req.params.id])
@@ -71,6 +84,37 @@ app.delete('/api/usuarios/eliminar/:id', (req, res) => {
       res.status(200).json({ mensaje: 'Usuario eliminado' });
     })
     .catch(err => res.status(500).json({ error: err.message }));
+});
+
+// index.js
+app.post('/api/usuarios/login', async (req, res) => {
+    const { correo, contrasena } = req.body;
+
+    try {
+        const result = await client.query(
+            'SELECT id, nombre_completo, correo, is_admin FROM usuarios WHERE correo = $1 AND contrasena = $2',
+            [correo, contrasena] // ¡Importante: En producción, NUNCA almacenes contraseñas sin hashear!
+        );
+
+        if (result.rows.length > 0) {
+            const usuario = result.rows[0];
+            res.status(200).json({ 
+                success: true, 
+                mensaje: 'Inicio de sesión exitoso', 
+                usuario: { 
+                    id: usuario.id, 
+                    nombre_completo: usuario.nombre_completo,
+                    correo: usuario.correo,
+                    is_admin: usuario.is_admin 
+                } 
+            });
+        } else {
+            res.status(401).json({ success: false, mensaje: 'Credenciales inválidas' });
+        }
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        res.status(500).json({ success: false, error: 'Error al iniciar sesión' });
+    }
 });
 
 // ------------------ RUTAS PARA PRODUCTOS ------------------

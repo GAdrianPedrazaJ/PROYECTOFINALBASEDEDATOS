@@ -1,54 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse en la cuenta</title>
     <link rel="stylesheet" href="css/registro_estilos.css">
 </head>
+
 <body>
-    
-    <section class="container"><!---->
-        <header>Registrate</header>
-        <form action="guardar_registro.php" class="form">
+
+    <section class="container">
+        <header>Regístrate</header>
+        <form id="registro-form">
             <div class="input-box">
-                <label>Nombre</label>
-                <input type="text" placeholder="Ingresa tu usuario" required>
+                <label>Nombre Completo</label>
+                <input type="text" id="nombre" placeholder="Ingresa tu nombre completo" required>
             </div>
 
             <div class="input-box">
-                <label>Gmail</label>
-                <input type="text" placeholder="Ingresa tu correo" required>
+                <label>Correo</label>
+                <input type="text" id="gmail" placeholder="Ingresa tu correo" required>
             </div>
 
             <div class="input-box">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                <label>Contraseña</label>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
             </div>
 
             <div class="column">
                 <div class="input-box">
-                    <label>Numero telefonico</label>
-                    <input type="number" placeholder="Ingresa tu telefonico" required>
+                    <label>Número Telefónico</label>
+                    <input type="number" id="telefono" placeholder="Ingresa tu teléfono" required>
                 </div>
                 <div class="input-box">
-                    <label>Fecha de nacimiento</label>
-                    <input type="date" placeholder="Ingresa tu fecha de nacimiento" required>
+                    <label>Fecha de Nacimiento</label>
+                    <input type="date" id="fecha_nacimiento" required>
                 </div>
             </div>
-
-            <div class="input-box adress">
+            <div class="input-box address">
                 <label>Dirección</label>
-                <input type="text" placeholder="Ingresa tu dirección" required />
-                <!--<input type="text" placeholder="Ingresa tu dirección 2" required />-->
+                <input type="text" placeholder="Ingresa la dirección de la calle" id="direccion" required>
                 <div class="column">
                     <div class="select-box">
-                        <select name="departamento" id="departamento">
-                            <option hidden>Departamentos</option>
+                        <select id="departamento" required>
+                            <option hidden>Departamento</option>
                             <option value="Amazonas">Amazonas</option>
                             <option value="Antioquia">Antioquia</option>
                             <option value="Arauca">Arauca</option>
                             <option value="Atlántico">Atlántico</option>
+                            <option value="Bogotá">Bogotá</option>
                             <option value="Bolívar">Bolívar</option>
                             <option value="Boyacá">Boyacá</option>
                             <option value="Caldas">Caldas</option>
@@ -77,19 +78,19 @@
                             <option value="Valle del Cauca">Valle del Cauca</option>
                             <option value="Vaupés">Vaupés</option>
                             <option value="Vichada">Vichada</option>
-                        </select>                        
+                        </select>
                     </div>
-                    <input type="text" placeholder="Ciudad" required />
+                    <input type="text" id="ciudad" placeholder="Ciudad" required />
                 </div>
                 <div>
-                    <!--<input type="text" placeholder="Región" required />-->
-                    <input type="number" placeholder="Código postal" required />
+                    <input type="number" id="codigo_postal" placeholder="Código postal" required />
                 </div>
             </div>
             <button type="submit">Registrarse</button>
-
         </form>
     </section>
-    
+
+    <script src="script.js"></script>
 </body>
+
 </html>

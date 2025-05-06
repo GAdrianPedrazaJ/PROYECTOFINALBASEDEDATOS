@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicia seción en la página</title>
+    <title>Iniciar sesión en la página</title>
     <link rel="stylesheet" href="css/inicio_secion_estilos.css">
 </head>
 <body>
@@ -15,13 +15,13 @@
                 <header>Iniciar sesión</header>
             </div>
             
-            <form action="Registros.php" method="POST">
+            <form id="login-form">
                 <div class="input-field">
-                    <input type="text" class="input" placeholder="Usuario" required>
+                    <input type="text" id="usuario" class="input" placeholder="Usuario" required>
                     <i class="bx bx-lock-alt"></i>  
                 </div>
                 <div class="input-field">
-                    <input type="password" class="input" placeholder="Contraseña" required>
+                    <input type="password" id="contrasena" class="input" placeholder="Contraseña" required>
                     <i class="bx-lock-alt"></i>
                 </div>
                 <div class="input-field">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="bottom-center">
-                <label><a href="Registro.html">¿No tienes cuenta? Regístrate aquí</a></label>
+                <label><a href="registro.html">¿No tienes cuenta? Regístrate aquí</a></label>
             </div>
 
             <div class="social">
