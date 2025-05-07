@@ -32,6 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 is_admin: false // Por defecto, no es administrador
             };
 
+            if (!formData.nombre_completo || !formData.correo || !formData.contrasena || 
+                !formData.telefono || !formData.fecha_nacimiento || !formData.direccion || 
+                !formData.departamento || !formData.ciudad || !formData.codigo_postal) {
+                alert('Por favor complete todos los campos obligatorios');
+                return;
+            }
+
             try {
                 const response = await fetch('http://localhost:3000/api/usuarios/insertar', {
                     method: 'POST',

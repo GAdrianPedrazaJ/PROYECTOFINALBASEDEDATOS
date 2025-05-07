@@ -36,19 +36,49 @@ const validarTabla = (req, res, next) => {
 app.post('/api/usuarios/insertar', async (req, res) => {
   const { nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, is_admin } = req.body;
 
-  try {
-      // Inserta la contraseña directamente sin hashear
-      const query = `
-          INSERT INTO usuarios (nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, is_admin)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
-      `;
-      await client.query(query, [nombre_completo, correo, contrasena, telefono, fecha_nacimiento, direccion, departamento, ciudad, codigo_postal, is_admin]);
+  // Validación básica
+  if (!nombre_completo || !correo || !contrasena || !telefono || !fecha_nacimiento || 
+      !direccion || !departamento || !ciudad || !codigo_postal) {
+      return res.status(400).json({ error: 'Todos los campos son obligatorios' });
+  }
 
-      res.status(201).json({ mensaje: 'Usuario creado con éxito' });
+  try {
+      const query = `
+          INSERT INTO usuarios (nombre_completo, correo, contrasena, telefono, fecha_nacimiento, 
+                               direccion, departamento, ciudad, codigo_postal, is_admin)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+          RETURNING id
+      `;
+      const result = await client.query(query, [
+          nombre_completo, 
+          correo, 
+          contrasena, 
+          telefono.toString(), // Asegurar que es string
+          fecha_nacimiento, 
+          direccion, 
+          departamento, 
+          ciudad, 
+          codigo_postal.toString(), // Asegurar que es string
+          is_admin || false
+      ]);
+
+      res.status(201).json({ 
+          mensaje: 'Usuario creado con éxito',
+          usuarioId: result.rows[0].id 
+      });
 
   } catch (error) {
       console.error('Error al registrar usuario:', error);
-      res.status(500).json({ error: 'Error al registrar usuario' });
+      
+      // Manejar error de correo duplicado
+      if (error.code === '23505' && error.constraint === 'usuarios_correo_key') {
+          return res.status(400).json({ error: 'El correo electrónico ya está registrado' });
+      }
+      
+      res.status(500).json({ 
+          error: 'Error al registrar usuario',
+          detalle: error.message 
+      });
   }
 });
 
