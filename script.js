@@ -306,7 +306,7 @@ async function cargarDatosFormulario(tabla, id) {
     }
 }
 
-document.getElementById('form-modal').addEventListener('submit', async function(e) {
+/*document.getElementById('form-modal').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     if (!esAdmin()) {
@@ -354,7 +354,7 @@ document.getElementById('form-modal').addEventListener('submit', async function(
         console.error('Error:', error);
         alert('Error al realizar la operación: ' + error.message);
     }
-});
+});*/
 
 async function eliminarRegistro(tabla, id) {
     if (!esAdmin()) {
@@ -398,21 +398,33 @@ function verificarRolUsuario() {
 // ========== MOSTRAR NOMBRE DEL USUARIO ==========
 function mostrarNombreUsuario() {
     const usuario = JSON.parse(localStorage.getItem('usuario'));
-    const usuarioNombre = document.getElementById('usuario-nombre');
+    const usuarioNombre = document.getElementById('nombre-usuario'); // Asegúrate de que coincida con el ID en HTML
     const btnIniciarSesion = document.getElementById('btn-iniciar-sesion');
     const btnRegistrarse = document.getElementById('btn-registrarse');
+    const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
 
     if (usuario && usuario.nombre_completo) {
-        usuarioNombre.textContent = `Hola, ${usuario.nombre_completo}`;
-        usuarioNombre.style.display = 'inline'; // Muestra el nombre del usuario
-        btnIniciarSesion.style.display = 'none'; // Oculta el botón de iniciar sesión
-        btnRegistrarse.style.display = 'none'; // Oculta el botón de registrarse
+        usuarioNombre.textContent = `Bienvenido, ${usuario.nombre_completo}`;
+        usuarioNombre.style.display = 'inline';
+        btnIniciarSesion.style.display = 'none';
+        btnRegistrarse.style.display = 'none';
+        btnCerrarSesion.style.display = 'inline'; // Mostrar botón de cerrar sesión
     } else {
-        usuarioNombre.style.display = 'none'; // Oculta el nombre si no hay usuario
-        btnIniciarSesion.style.display = 'inline'; // Muestra el botón de iniciar sesión
-        btnRegistrarse.style.display = 'inline'; // Muestra el botón de registrarse
+        usuarioNombre.style.display = 'none';
+        btnIniciarSesion.style.display = 'inline';
+        btnRegistrarse.style.display = 'inline';
+        btnCerrarSesion.style.display = 'none'; // Ocultar botón de cerrar sesión
     }
 }
+
+// Llamar a la función al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    mostrarNombreUsuario();
+    // Resto del código...
+});
+
+// Llamar a mostrarNombreUsuario al cargar la página
+//mostrarNombreUsuario();
 
 // Función auxiliar para verificar si el usuario es admin
 function esAdmin() {
